@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ORDERITEM
+      app: OrderItem
   template:
     metadata:
       labels:
-        app: ORDERITEM
+        app: OrderItem
     spec:
       containers:
       - name: orderitem
@@ -30,4 +30,4 @@ spec:
   ports:
   - port: 80
   selector:
-    app: ORDERITEM
+    app: OrderItem

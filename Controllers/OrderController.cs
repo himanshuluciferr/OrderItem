@@ -38,7 +38,7 @@ namespace OrderItem.Controllers
         [HttpPost("{menuItemid}")]
         public Cart Post(int menuItemid)
         {
-            string token=GetToken("http://52.154.173.160//api/token");
+            string token=GetToken("http://52.154.173.160/api/token");
             var cart =new Cart()
             {
                 Id = 1,
@@ -93,7 +93,7 @@ namespace OrderItem.Controllers
 
                 var response = client.PostAsync(url, data).Result;
                 string name = response.Content.ReadAsStringAsync().Result;
-                dynamic details = JObject.Parse(json: name);
+                dynamic details = JObject.Parse(name);
                 return details.token;
             }
         }
