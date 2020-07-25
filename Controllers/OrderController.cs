@@ -38,7 +38,7 @@ namespace OrderItem.Controllers
         [HttpPost("{menuItemid}")]
         public Cart Post(int menuItemid)
         {
-            string token=GetToken("https://52.141.210.58:80/api/token");
+            string token=GetToken("http://52.154.173.160//api/token");
             var cart =new Cart()
             {
                 Id = 1,
@@ -54,7 +54,7 @@ namespace OrderItem.Controllers
             string name;
             using (var client=new HttpClient())
             {
-                client.BaseAddress=new Uri("https://52.141.210.58:80");
+                client.BaseAddress=new Uri("http://52.154.173.160/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/string"));
@@ -93,7 +93,7 @@ namespace OrderItem.Controllers
 
                 var response = client.PostAsync(url, data).Result;
                 string name = response.Content.ReadAsStringAsync().Result;
-                dynamic details = JObject.Parse(name);
+                dynamic details = JObject.Parse(json: name);
                 return details.token;
             }
         }
